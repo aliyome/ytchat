@@ -1,8 +1,8 @@
 import { getContinuation, _enc, _build, _header, _times } from './get_continuation';
 
-xit('continuation', () => {
+xit('getContinuation', () => {
   console.log(_times(10));
-  console.log(getContinuation('ABC_EFG_IJK', 10, true));
+  console.log(getContinuation('ABC_EFG_IJK', 3, false));
   fail();
 });
 

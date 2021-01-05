@@ -69,7 +69,7 @@ export const _build = (
     .concat(str19)
     .concat(timestamp5);
   const continuation = rs(119693434, entity);
-  return `${Buffer.from(continuation).toString('base64')}`;
+  return toUrlsafeBase64(`${Buffer.from(continuation).toString('base64')}`);
 };
 
 const getRandom = (min: number, max: number) => {
@@ -90,6 +90,8 @@ export const getContinuation = (videoId: string, pastSec: number, topChatOnly: b
   const [t1, t2, t3, t4, t5] = _times(pastSec);
   return _build(videoId, t1, t2, t3, t4, t5, topChatOnly);
 };
+
+const toUrlsafeBase64 = (str64: string): string => str64.replace(/\+/g, '-').replace(/\//g, '_');
 
 const vn = (val: number): number[] => {
   if (val < 0) {
